@@ -13,10 +13,8 @@ const GetStarted = () => {
   
   const [formData, setFormData] = useState({
     studentName: '',
-    parentName: '',
     studentClass: '',
     schoolName: '',
-    city: '',
     mobileNumber: '',
     email: '',
     selectedCourse: '',
@@ -76,8 +74,8 @@ const GetStarted = () => {
   const validateStep = (step: number) => {
     switch (step) {
       case 1:
-        if (!formData.studentName || !formData.parentName || !formData.studentClass ||
-            !formData.schoolName || !formData.city || !formData.mobileNumber ||
+        if (!formData.studentName || !formData.studentClass ||
+            !formData.schoolName || !formData.mobileNumber ||
             !formData.email || !formData.howDidYouHear) {
           alert('Please fill in all required fields')
           return false
@@ -126,12 +124,10 @@ const GetStarted = () => {
         // Step 1: Register the user
         const registrationPayload = {
           student_name: formData.studentName,
-          parent_name: formData.parentName,
           email: formData.email,
           mobile_number: formData.mobileNumber,
           class_level: formData.studentClass,
           school_name: formData.schoolName,
-          city: formData.city,
           selected_course: formData.selectedCourse,
           how_did_you_hear: formData.howDidYouHear,
           other_source: formData.otherSource || null,
@@ -204,8 +200,9 @@ const GetStarted = () => {
         console.log('Payment Response:', paymentData)
 
         if (paymentData.success && paymentData.redirect_url) {
-          // Redirect directly to payment page
-          window.location.href = paymentData.redirect_url
+          // Show payment modal with QR code option
+          setPaymentUrl(paymentData.redirect_url)
+          setShowPaymentModal(true)
         } else {
           const errorMsg = paymentData.error || paymentData.detail || 'Payment initiation failed'
           throw new Error(errorMsg)
@@ -323,21 +320,6 @@ const GetStarted = () => {
 
                     <div>
                       <label className="block text-sm font-semibold text-gray-300 mb-2">
-                        Parent/Guardian Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="parentName"
-                        value={formData.parentName}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-[#0f1628] text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-500"
-                        placeholder="Enter parent's full name"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-300 mb-2">
                         Class *
                       </label>
                       <select
@@ -369,21 +351,6 @@ const GetStarted = () => {
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-[#0f1628] text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-500"
                         placeholder="Enter school name"
-                        required
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-300 mb-2">
-                        City *
-                      </label>
-                      <input
-                        type="text"
-                        name="city"
-                        value={formData.city}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-[#0f1628] text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-500"
-                        placeholder="Enter city"
                         required
                       />
                     </div>
@@ -779,14 +746,14 @@ const GetStarted = () => {
                     }}
                   />
                   {/* Fallback QR placeholder */}
-                  {/* <div id="qr-fallback" className="w-48 h-48 bg-gradient-to-br from-gray-100 to-gray-200 hidden items-center justify-center">
+                  <div id="qr-fallback" className="w-48 h-48 bg-gradient-to-br from-gray-100 to-gray-200 hidden items-center justify-center">
                     <div className="text-center">
                       <FaQrcode className="w-16 h-16 mx-auto mb-2 text-blue-500" />
                       <p className="text-sm text-gray-600">QR Code</p>
                     </div>
-                  </div> */}
+                  </div>
                 </div>
-                {/* <p className="text-gray-400 text-sm">Scan with any UPI app (GPay, PhonePe, Paytm)</p> */}
+                <p className="text-gray-400 text-sm">Scan with any UPI app (GPay, PhonePe, Paytm)</p>
               </div>
 
               {/* Divider */}
