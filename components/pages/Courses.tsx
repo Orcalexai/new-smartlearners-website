@@ -10,13 +10,13 @@ const courses = [
     image: '/course-cbse.png',
     color: '#3b82f6',
     items: [
-      { name: 'Class 6', subjects: 'Mathematics, Science, English', price: 500 },
-      { name: 'Class 7', subjects: 'Mathematics, Science, English', price: 500 },
-      { name: 'Class 8', subjects: 'Mathematics, Science, English', price: 500 },
-      { name: 'Class 9', subjects: 'Mathematics, Science, English', price: 500 },
-      { name: 'Class 10', subjects: 'Mathematics, Science, English', price: 500 },
-      { name: 'Class 11', subjects: 'Mathematics,Physics, Chemistry, Biology', price: 600 },
-      { name: 'Class 12', subjects: 'Mathematics,Physics, Chemistry, Biology', price: 600 },
+      { name: 'Class 6', subjects: 'Mathematics, Science, English', price: 200 },
+      { name: 'Class 7', subjects: 'Mathematics, Science, English', price: 200 },
+      { name: 'Class 8', subjects: 'Mathematics, Science, English', price: 200 },
+      { name: 'Class 9', subjects: 'Mathematics, Science, English', price: 200 },
+      { name: 'Class 10', subjects: 'Mathematics, Science, English', price: 200 },
+      { name: 'Class 11', subjects: 'Mathematics,Physics, Chemistry, Biology', price: 300 },
+      { name: 'Class 12', subjects: 'Mathematics,Physics, Chemistry, Biology', price: 300 },
     ]
   },
   {
@@ -24,9 +24,9 @@ const courses = [
     image: '/course-jee-foundation.png',
     color: '#a855f7',
     items: [
-      { name: 'Class 8 Foundation', price: '600', subjects: 'Mathematics' },
-      { name: 'Class 9 Foundation', price: '600', subjects: 'Mathematics' },
-      { name: 'Class 10 Foundation', price: '600', subjects: 'Mathematics' },
+      { name: 'Class 8 Foundation', price: '500', subjects: 'Mathematics' },
+      { name: 'Class 9 Foundation', price: '500', subjects: 'Mathematics' },
+      { name: 'Class 10 Foundation', price: '500', subjects: 'Mathematics' },
     ]
   },
   {
@@ -138,8 +138,8 @@ export default function Courses() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {[
-              { name: 'CBSE Class 6-10', price: 500, color: '#3b82f6', features: ['All Subjects', 'Video Lessons', 'Practice Tests', 'AI Support'] },
-              { name: 'CBSE Class 11-12', price: 600, color: '#3b82f6', features: ['All Subjects', 'Video Lessons', 'Practice Tests', 'AI Support'] },
+              { name: 'CBSE Class 6-10', price: 200, color: '#3b82f6', features: ['All Subjects', 'Video Lessons', 'Practice Tests', 'AI Support'] },
+              { name: 'CBSE Class 11-12', price: 300, color: '#3b82f6', features: ['All Subjects', 'Video Lessons', 'Practice Tests', 'AI Support'] },
               { name: 'JEE Mains', price: 800, color: '#f59e0b', features: ['PCM Complete', 'Mock Tests', 'AI Analysis', 'Doubt Support'], popular: true },
               { name: 'JEE Advanced', price: 1000, color: '#ef4444', features: ['Advanced Problems', 'Full Mock Tests', 'AI Remedial', 'Expert Support'] },
             ].map((plan, index) => (

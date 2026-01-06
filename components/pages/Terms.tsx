@@ -239,14 +239,25 @@ const Terms = () => {
               <li>• The service is discontinued (with reasonable notice).</li>
             </ul>
 
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">11. Changes to Terms</h2>
-            
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">11. Communication: WhatsApp Notifications</h2>
+
+            <p className="text-gray-600 mb-4">
+              By creating an account on Smart Learners.ai, you consent to receive important communications from us through WhatsApp, including:
+            </p>
+            <ul className="text-gray-600 mb-8 space-y-2">
+              <li>• Learning updates and reminders</li>
+              <li>• Test alerts, progress reports, and performance insights</li>
+              <li>• Important service-related messages</li>
+            </ul>
+
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">12. Changes to Terms</h2>
+
             <p className="text-gray-600 mb-8">
               We may update these Terms from time to time. Material changes will be communicated by email or platform notification at least 30 days before effect. Continued use after changes implies acceptance.
             </p>
 
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">12. Contact Information</h2>
-            
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">13. Contact Information</h2>
+
             <p className="text-gray-600 mb-4">
               For any questions about these Terms, contact us:
             </p>

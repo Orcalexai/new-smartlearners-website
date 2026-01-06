@@ -107,49 +107,33 @@ const Features = () => {
       gradient: 'from-blue-500 via-indigo-500 to-purple-500',
       accentColor: 'blue'
     },
-    // 6. PROGRESS ANALYSIS (06)
+    // 6. EXAM MODE (06)
     {
-      title: 'Progress Analysis',
-      subtitle: 'SmartLearners.ai tracks learning like a personal coach:',
-      icon: '📊',
+      title: 'Exam Mode',
+      subtitle: 'Real exam-level practice with complete performance analysis and personalized improvement plans.',
+      icon: '🎓',
       number: '06',
-      videoPlaceholder: '/feature-video-4.mp4',
+      videoPlaceholder: '/exam-mode-demo.mp4',
       benefits: [
-        'Day-wise improvement',
-        'Chapter-wise progress',
-        'Mistake progress, error analysis',
-        'Which concepts are strong & weak',
-        'Accuracy trend of every exam and homework',
-        'Whether mistakes are due to calculation or concept'
+        'Real exam-level question experience',
+        'Clear marks and performance breakdown',
+        'Exact questions where marks were lost',
+        'Identification of weak chapters and concepts',
+        'Personalized day-wise improvement plan',
+        'Right questions to practice at the right time',
+        'Visual progress tracking after every practice',
+        'Confidence to face the real exam'
       ],
-      whyItHelps: 'Students always know where they stand and how fast they are improving.',
+      whyItHelps: 'Exam Mode delivers exam-ready practice by pinpointing mark loss and weak concepts, guiding focused revision with a personalized plan, and boosting exam confidence.',
       gradient: 'from-orange-500 via-amber-500 to-yellow-500',
       accentColor: 'orange'
     },
-    // 7. AUTO-CORRECTION (07)
-    {
-      title: 'Auto-Correction of Homework & Classwork',
-      subtitle: 'Teachers can assign homework or classwork.',
-      icon: '✅',
-      number: '07',
-      videoPlaceholder: '/feature-video-3.mp4',
-      benefits: [
-        'Student uploads handwritten answers',
-        'System auto-corrects',
-        'Gives marks instantly',
-        'Teacher can see results for the entire class',
-        'Students get corrections with proper steps'
-      ],
-      whyItHelps: 'No waiting for correction — instant learning, instant feedback.',
-      gradient: 'from-green-500 via-teal-500 to-cyan-500',
-      accentColor: 'green'
-    },
-    // 8. WORKSHEETS & CUSTOM QUESTIONS (08)
+    // 7. WORKSHEETS & CUSTOM QUESTIONS (07)
     {
       title: 'Worksheets & Custom Questions',
       subtitle: 'Teachers can create their own questions and assignments inside SmartLearners.ai.',
       icon: '📝',
-      number: '08',
+      number: '07',
       videoPlaceholder: '/feature-video-6.mp4',
       benefits: [
         'Create custom worksheets',
@@ -162,115 +146,32 @@ const Features = () => {
     }
   ]
 
-  // Features for Schools
+  // Features for Schools - Single combined feature
   const schoolFeatures = [
     {
-      title: 'Comprehensive Exam Analysis',
-      subtitle: 'Get detailed insights into student performance across your entire institution.',
-      icon: '📊',
+      title: 'Assessment as a Service',
+      subtitle: 'Complete solution for teachers and schools to automate exam evaluation and improve learning outcomes.',
+      icon: '🏫',
       number: '01',
-      videoPlaceholder: '/school-analysis.mp4',
+      videoPlaceholder: '/school-demo.mp4',
       benefits: [
-        'Class-wise performance comparison',
-        'Section-wise analytics and rankings',
-        'Chapter-wise gap identification',
-        'Subject-wise strength and weakness mapping',
-        'Individual student performance tracking',
-        'Trend analysis over multiple exams'
+        '👩‍🏫 What Teachers Get:',
+        'Automatic exam correction',
+        'Step-wise mistake identification',
+        'Clear marks for every question',
+        'Exact step where students lost marks',
+        'Ready-to-use remedial guidance',
+        '',
+        '💡 How It Helps Schools:',
+        'Saves hours of exam correction time',
+        'Reduces teacher workload significantly',
+        'Ensures fair and consistent evaluation',
+        'Delivers clear academic insights',
+        'Improves overall learning outcomes'
       ],
-      whyItHelps: 'Make data-driven decisions to improve overall school performance and identify areas needing attention.',
+      whyItHelps: 'Transform your school\'s exam correction process with AI - save time, ensure accuracy, and improve student results.',
       gradient: 'from-purple-500 via-pink-500 to-red-500',
       accentColor: 'purple'
-    },
-    {
-      title: 'Bulk Exam Correction',
-      subtitle: 'AI-powered automatic correction for entire classes in minutes.',
-      icon: '✅',
-      number: '02',
-      videoPlaceholder: '/bulk-correction.mp4',
-      benefits: [
-        'Upload answer sheets for entire class at once',
-        'Automatic evaluation with consistent marking',
-        'Instant results for all students',
-        'Detailed mistake analysis for each student',
-        'Save hundreds of hours in manual correction',
-        'Export reports in various formats'
-      ],
-      whyItHelps: 'Free up teacher time for actual teaching instead of repetitive correction work.',
-      gradient: 'from-blue-500 via-indigo-500 to-purple-500',
-      accentColor: 'blue'
-    },
-    {
-      title: 'Teacher Dashboard',
-      subtitle: 'Centralized control panel for managing classes, assignments, and performance.',
-      icon: '👨‍🏫',
-      number: '03',
-      videoPlaceholder: '/teacher-dashboard.mp4',
-      benefits: [
-        'Create and assign custom worksheets',
-        'Monitor student progress in real-time',
-        'View class-wise completion rates',
-        'Identify struggling students instantly',
-        'Generate performance reports',
-        'Track homework and classwork submissions'
-      ],
-      whyItHelps: 'Complete visibility into every classroom activity with actionable insights.',
-      gradient: 'from-green-500 via-teal-500 to-cyan-500',
-      accentColor: 'green'
-    },
-    {
-      title: 'Gap Analysis & Remedial Planning',
-      subtitle: 'Identify learning gaps and get AI-recommended remedial strategies.',
-      icon: '🎯',
-      number: '04',
-      videoPlaceholder: '/gap-analysis.mp4',
-      benefits: [
-        'Chapter-wise gap identification for each student',
-        'Concept-level weakness detection',
-        'AI-generated remedial lesson plans',
-        'Personalized practice recommendations',
-        'Progress tracking on improvement areas',
-        'Group students by similar gaps for targeted teaching'
-      ],
-      whyItHelps: 'Ensure no student falls behind with systematic gap closure strategies.',
-      gradient: 'from-orange-500 via-amber-500 to-yellow-500',
-      accentColor: 'orange'
-    },
-    {
-      title: 'Parent Communication Portal',
-      subtitle: 'Keep parents informed with automated progress updates.',
-      icon: '📱',
-      number: '05',
-      videoPlaceholder: '/parent-portal.mp4',
-      benefits: [
-        'Automated WhatsApp reports to parents',
-        'Weekly/Monthly performance summaries',
-        'Instant notification on exam completion',
-        'Parent access to detailed analytics',
-        'Two-way communication channel',
-        'Attendance and homework tracking'
-      ],
-      whyItHelps: 'Improve parent engagement and keep them informed about their child\'s progress without manual effort.',
-      gradient: 'from-indigo-500 via-blue-500 to-sky-500',
-      accentColor: 'indigo'
-    },
-    {
-      title: 'School-wide Analytics',
-      subtitle: 'Institutional level insights for strategic planning.',
-      icon: '📈',
-      number: '06',
-      videoPlaceholder: '/school-analytics.mp4',
-      benefits: [
-        'Compare performance across multiple classes',
-        'Year-over-year improvement tracking',
-        'Board exam preparation readiness',
-        'Teacher performance insights',
-        'Subject-wise school average analysis',
-        'Identify top performers and struggling groups'
-      ],
-      whyItHelps: 'Strategic insights for school management to make informed decisions about curriculum and teaching methods.',
-      gradient: 'from-violet-500 via-purple-500 to-fuchsia-500',
-      accentColor: 'violet'
     }
   ]
 
@@ -404,30 +305,43 @@ const Features = () => {
                       </p>
 
                       <div className="space-y-3">
-                        {carouselFeatures[currentIndex].benefits.map((benefit, idx) => (
-                          <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: idx * 0.1 + 0.3 }}
-                            className="flex items-start gap-3"
-                          >
-                            <FaCheckCircle
-                              className="flex-shrink-0 mt-1"
-                              style={{
-                                color: currentIndex === 0 ? '#10b981' :
-                                  currentIndex === 1 ? '#8b5cf6' :
-                                  currentIndex === 2 ? '#3b82f6' :
-                                  currentIndex === 3 ? '#a855f7' :
-                                  currentIndex === 4 ? '#6366f1' :
-                                  currentIndex === 5 ? '#f97316' :
-                                  currentIndex === 6 ? '#22c55e' :
-                                  '#ec4899'
-                              }}
-                            />
-                            <span className="text-gray-300 text-lg">{benefit}</span>
-                          </motion.div>
-                        ))}
+                        {carouselFeatures[currentIndex].benefits.map((benefit, idx) => {
+                          // Check if it's a heading (contains emoji like 👩‍🏫 or 💡)
+                          const isHeading = benefit.includes('👩‍🏫') || benefit.includes('💡');
+                          // Skip empty strings
+                          if (benefit === '') return null;
+
+                          return (
+                            <motion.div
+                              key={idx}
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: idx * 0.1 + 0.3 }}
+                              className={isHeading ? "mt-4 first:mt-0" : "flex items-start gap-3"}
+                            >
+                              {isHeading ? (
+                                <span className="text-white text-xl font-bold">{benefit}</span>
+                              ) : (
+                                <>
+                                  <FaCheckCircle
+                                    className="flex-shrink-0 mt-1"
+                                    style={{
+                                      color: currentIndex === 0 ? '#10b981' :
+                                        currentIndex === 1 ? '#8b5cf6' :
+                                        currentIndex === 2 ? '#3b82f6' :
+                                        currentIndex === 3 ? '#a855f7' :
+                                        currentIndex === 4 ? '#6366f1' :
+                                        currentIndex === 5 ? '#f97316' :
+                                        currentIndex === 6 ? '#22c55e' :
+                                        '#ec4899'
+                                    }}
+                                  />
+                                  <span className="text-gray-300 text-lg">{benefit}</span>
+                                </>
+                              )}
+                            </motion.div>
+                          );
+                        })}
                       </div>
 
                       <motion.div
@@ -570,6 +484,36 @@ const Features = () => {
                               loop
                             >
                               <source src="/whatsapp-parental-demo.mp4" type="video/mp4" />
+                              Your browser does not support the video tag.
+                            </video>
+                          </div>
+                        ) : currentIndex === 5 && userType !== 'school' ? (
+                          // Actual video for Exam Mode feature (at index 5 for parents)
+                          <div className="rounded-xl overflow-hidden">
+                            <video
+                              className="w-full h-auto rounded-xl"
+                              style={{ maxHeight: '550px' }}
+                              controls
+                              autoPlay
+                              muted
+                              loop
+                            >
+                              <source src="/exam-mode-demo.mp4" type="video/mp4" />
+                              Your browser does not support the video tag.
+                            </video>
+                          </div>
+                        ) : userType === 'school' ? (
+                          // Actual video for School feature
+                          <div className="rounded-xl overflow-hidden">
+                            <video
+                              className="w-full h-auto rounded-xl"
+                              style={{ maxHeight: '550px' }}
+                              controls
+                              autoPlay
+                              muted
+                              loop
+                            >
+                              <source src="/school-demo.mp4" type="video/mp4" />
                               Your browser does not support the video tag.
                             </video>
                           </div>

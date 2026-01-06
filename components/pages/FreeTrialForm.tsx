@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaUser, FaArrowRight, FaEye, FaEyeSlash } from 'react-icons/fa'
 import toast, { Toaster } from 'react-hot-toast'
+import Link from 'next/link'
 
 const FreeTrialForm = () => {
   const [formData, setFormData] = useState({
@@ -13,24 +14,32 @@ const FreeTrialForm = () => {
     className: '',
     sectionName: '',
     whatsappNumber: '',
-    email: '',
     username: '',
-    password: ''
+    password: '',
+    termsAccepted: false
   })
 
   const [showPassword, setShowPassword] = useState(false)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
+    const { name, value, type } = e.target
+    if (type === 'checkbox') {
+      const checked = (e.target as HTMLInputElement).checked
+      setFormData(prev => ({
+        ...prev,
+        [name]: checked
+      }))
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }))
+    }
   }
 
   const validateForm = () => {
     if (!formData.fullName || !formData.rollNumber ||
-        !formData.whatsappNumber || !formData.email || !formData.username || !formData.password) {
+        !formData.whatsappNumber || !formData.username || !formData.password) {
       toast.error('Please fill in all required fields')
       return false
     }
@@ -38,12 +47,12 @@ const FreeTrialForm = () => {
       toast.error('Please enter a valid 10-digit WhatsApp number')
       return false
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      toast.error('Please enter a valid email address')
-      return false
-    }
     if (formData.password.length < 8) {
       toast.error('Password must be at least 8 characters long')
+      return false
+    }
+    if (!formData.termsAccepted) {
+      toast.error('Please accept the Terms and Conditions')
       return false
     }
     return true
@@ -54,7 +63,7 @@ const FreeTrialForm = () => {
       try {
         const payload = {
           fullname: formData.fullName,
-          email: formData.email,
+          email: `${formData.username}@smartlearners.ai`,
           username: formData.username,
           roll_number: formData.rollNumber,
           phone_number: formData.whatsappNumber,
@@ -136,9 +145,9 @@ const FreeTrialForm = () => {
             className: '',
             sectionName: '',
             whatsappNumber: '',
-            email: '',
             username: '',
-            password: ''
+            password: '',
+            termsAccepted: false
           })
         } else {
           throw new Error(data.detail || data.error || 'Registration failed')
@@ -317,21 +326,6 @@ const FreeTrialForm = () => {
 
               <div>
                 <label className="block text-sm font-semibold text-gray-300 mb-2">
-                  Email Address *
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/5 text-white placeholder-gray-500 transition-all duration-200"
-                  placeholder="email@example.com"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Username *
                 </label>
                 <input
@@ -367,6 +361,37 @@ const FreeTrialForm = () => {
                     {showPassword ? <FaEyeSlash size={20} /> : <FaEye size={20} />}
                   </button>
                 </div>
+              </div>
+
+              {/* Terms and Conditions Checkbox */}
+              <div className="mt-4">
+                <label className="flex items-start cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="termsAccepted"
+                    checked={formData.termsAccepted}
+                    onChange={handleInputChange}
+                    className="mt-1 mr-3 w-4 h-4 accent-blue-500 cursor-pointer"
+                  />
+                  <span className="text-sm text-gray-300">
+                    I agree to the{' '}
+                    <Link
+                      href="/terms"
+                      className="text-blue-400 hover:text-blue-300 underline"
+                      target="_blank"
+                    >
+                      Terms and Conditions
+                    </Link>
+                    {' '}and{' '}
+                    <Link
+                      href="/privacy"
+                      className="text-blue-400 hover:text-blue-300 underline"
+                      target="_blank"
+                    >
+                      Privacy Policy
+                    </Link>
+                  </span>
+                </label>
               </div>
             </div>
 
