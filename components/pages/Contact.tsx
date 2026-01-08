@@ -9,8 +9,8 @@ const contactInfo = [
     icon: '📥',
     title: 'Email Us',
     desc: 'Send us an email anytime',
-    value: 'info@smartlearners.ai',
-    href: 'mailto:info@smartlearners.ai',
+    value: 'hello@smartlearners.ai',
+    href: 'mailto:hello@smartlearners.ai',
     color: '#3b82f6'
   },
   {
@@ -321,11 +321,11 @@ export default function Contact() {
               <div className="glass-card p-8">
                 <h3 className="text-xl font-bold text-white mb-6">Quick Contact</h3>
                 <div className="space-y-4">
-                  <a href="mailto:info@smartlearners.ai" className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                  <a href="mailto:hello@smartlearners.ai" className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
                     <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-xl">📧</div>
                     <div>
                       <p className="text-white font-medium">Email Support</p>
-                      <p className="text-blue-400 text-sm">info@smartlearners.ai</p>
+                      <p className="text-blue-400 text-sm">hello@smartlearners.ai</p>
                     </div>
                   </a>
                   <a href="https://wa.me/919963885782" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
