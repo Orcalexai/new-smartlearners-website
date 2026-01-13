@@ -17,16 +17,16 @@ const contactInfo = [
     icon: '📞',
     title: 'Call Us',
     desc: 'Mon-Sat, 9am-6pm IST',
-    value: '+91 9963885782',
-    href: 'tel:+919963885782',
+    value: '+91 6303974827',
+    href: 'tel:+916303974827',
     color: '#c69decff'
   },
   {
     icon: '💬',
     title: 'WhatsApp',
     desc: 'Chat with us instantly',
-    value: '+91 9963885782',
-    href: 'https://wa.me/9963885782',
+    value: '+91 6303974827',
+    href: 'https://wa.me/6303974827',
     color: '#22c55e'
   },
   {
