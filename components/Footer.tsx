@@ -92,7 +92,7 @@ export default function Footer() {
                 <span>📧</span> hello@smartlearners.ai
               </a>
               <a href="tel:+919963885782" className="flex items-center gap-3 text-gray-400 hover:text-blue-400 transition-colors">
-                <span>📞</span> +91 9963885782
+                <span>📞</span> +91 6303974827
               </a>
               <p className="flex items-start gap-3 text-gray-400">
                 <span>📍</span> <span>Flat 302, Kaizen Imperial Heights, Begumpet, Hyderabad - 500016</span>
