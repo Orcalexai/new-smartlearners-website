@@ -9,10 +9,7 @@ import Link from 'next/link'
 const FreeTrialForm = () => {
   const [formData, setFormData] = useState({
     fullName: '',
-    rollNumber: '',
-    schoolName: '',
     className: '',
-    sectionName: '',
     whatsappNumber: '',
     username: '',
     password: '',
@@ -38,8 +35,7 @@ const FreeTrialForm = () => {
   }
 
   const validateForm = () => {
-    if (!formData.fullName || !formData.rollNumber ||
-        !formData.whatsappNumber || !formData.username || !formData.password) {
+    if (!formData.fullName || !formData.whatsappNumber || !formData.username || !formData.password) {
       toast.error('Please fill in all required fields')
       return false
     }
@@ -65,13 +61,10 @@ const FreeTrialForm = () => {
           fullname: formData.fullName,
           email: `${formData.username}@smartlearners.ai`,
           username: formData.username,
-          roll_number: formData.rollNumber,
           phone_number: formData.whatsappNumber,
           payment_done: false,
           password: formData.password,
-          ...(formData.schoolName && { school_name: formData.schoolName }),
-          ...(formData.className && { class_name: formData.className }),
-          ...(formData.sectionName && { section_name: formData.sectionName })
+          ...(formData.className && { class_name: formData.className })
         }
 
         console.log('Starting free trial registration...', payload)
@@ -140,10 +133,7 @@ const FreeTrialForm = () => {
           // Reset form
           setFormData({
             fullName: '',
-            rollNumber: '',
-            schoolName: '',
             className: '',
-            sectionName: '',
             whatsappNumber: '',
             username: '',
             password: '',
@@ -248,35 +238,6 @@ const FreeTrialForm = () => {
 
               <div>
                 <label className="block text-sm font-semibold text-gray-300 mb-2">
-                  Roll Number *
-                </label>
-                <input
-                  type="text"
-                  name="rollNumber"
-                  value={formData.rollNumber}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/5 text-white placeholder-gray-500 transition-all duration-200"
-                  placeholder="Enter your roll number"
-                  required
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-300 mb-2">
-                  School Name
-                </label>
-                <input
-                  type="text"
-                  name="schoolName"
-                  value={formData.schoolName}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/5 text-white placeholder-gray-500 transition-all duration-200"
-                  placeholder="Enter your school name"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Class Name
                 </label>
                 <select
@@ -292,20 +253,6 @@ const FreeTrialForm = () => {
                   <option value="9" className="bg-gray-900">9</option>
                   <option value="10" className="bg-gray-900">10</option>
                 </select>
-              </div>
-
-              <div>
-                <label className="block text-sm font-semibold text-gray-300 mb-2">
-                  Section Name
-                </label>
-                <input
-                  type="text"
-                  name="sectionName"
-                  value={formData.sectionName}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-white/10 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white/5 text-white placeholder-gray-500 transition-all duration-200"
-                  placeholder="Enter your section (e.g., A, B, C)"
-                />
               </div>
 
               <div>
