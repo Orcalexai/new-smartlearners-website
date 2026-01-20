@@ -12,7 +12,6 @@ export default function Signup() {
     fullName: '',
     className: '',
     whatsappNumber: '',
-    email: '',
     username: '',
     password: '',
   })
@@ -129,22 +128,6 @@ export default function Signup() {
                   placeholder="10-digit WhatsApp number"
                   pattern="[0-9]{10}"
                   maxLength={10}
-                  className="input-dark"
-                />
-              </div>
-
-              {/* Email */}
-              <div>
-                <label className="text-gray-400 text-sm font-medium mb-2 block">
-                  Email Address <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="email@example.com"
                   className="input-dark"
                 />
               </div>
