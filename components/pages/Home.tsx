@@ -121,7 +121,7 @@ export default function Home() {
                 </motion.p>
 
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35 }} className="flex flex-wrap justify-center gap-4 mb-8">
-                  <Link href="/free-trial" className="btn-primary text-lg px-8 py-4">Start Free Trial - 1 Month →</Link>
+                  <Link href="/free-trial" className="btn-primary text-lg px-8 py-4">Start Free Trial - 1 Week →</Link>
                   <button onClick={() => setShowVideoModal(true)} className="btn-secondary text-lg px-8 py-4 flex items-center gap-2"><FaPlay className="text-sm" /> Watch Demo</button>
                 </motion.div>
 
