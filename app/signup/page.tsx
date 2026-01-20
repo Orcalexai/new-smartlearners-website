@@ -10,10 +10,7 @@ export default function Signup() {
 
   const [formData, setFormData] = useState({
     fullName: '',
-    rollNumber: '',
-    schoolName: '',
     className: '',
-    sectionName: '',
     whatsappNumber: '',
     email: '',
     username: '',
@@ -95,37 +92,6 @@ export default function Signup() {
                 />
               </div>
 
-              {/* Roll Number */}
-              <div>
-                <label className="text-gray-400 text-sm font-medium mb-2 block">
-                  Roll Number <span className="text-red-400">*</span>
-                </label>
-                <input
-                  type="text"
-                  name="rollNumber"
-                  value={formData.rollNumber}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter your roll number"
-                  className="input-dark"
-                />
-              </div>
-
-              {/* School Name */}
-              <div>
-                <label className="text-gray-400 text-sm font-medium mb-2 block">
-                  School Name
-                </label>
-                <input
-                  type="text"
-                  name="schoolName"
-                  value={formData.schoolName}
-                  onChange={handleChange}
-                  placeholder="Enter your school name"
-                  className="input-dark"
-                />
-              </div>
-
               {/* Class Name */}
               <div>
                 <label className="text-gray-400 text-sm font-medium mb-2 block">
@@ -147,21 +113,6 @@ export default function Signup() {
                   <option value="11">Class 11</option>
                   <option value="12">Class 12</option>
                 </select>
-              </div>
-
-              {/* Section Name */}
-              <div>
-                <label className="text-gray-400 text-sm font-medium mb-2 block">
-                  Section Name
-                </label>
-                <input
-                  type="text"
-                  name="sectionName"
-                  value={formData.sectionName}
-                  onChange={handleChange}
-                  placeholder="Enter your section (e.g., A, B, C)"
-                  className="input-dark"
-                />
               </div>
 
               {/* WhatsApp Number */}
