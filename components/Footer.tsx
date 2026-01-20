@@ -182,7 +182,7 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-3">
               <span className="px-3 py-1 bg-white/5 rounded-full text-xs text-gray-400">
-                ISI Certified
+                ISO Certified
               </span>
               <span className="px-3 py-1 bg-white/5 rounded-full text-xs text-gray-400">
                 CBSE Aligned
