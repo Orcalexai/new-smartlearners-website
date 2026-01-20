@@ -199,7 +199,7 @@ export default function Home() {
             {isParent ? (
               <>
                 <div className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-1">50,000+</div>
+                  <div className="text-3xl md:text-4xl font-bold text-white mb-1">500+</div>
                   <div className="text-gray-400 text-sm">Active Students</div>
                 </div>
                 <div className="text-center">
