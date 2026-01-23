@@ -4,13 +4,11 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Card from '@/components/Card'
 import Button from '@/components/Button'
-import { FaUser, FaCreditCard, FaCheckCircle, FaArrowLeft, FaArrowRight, FaQrcode, FaTimes } from 'react-icons/fa'
+import { FaUser, FaCreditCard, FaCheckCircle, FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
 const GetStarted = () => {
   const [currentStep, setCurrentStep] = useState(1)
-  const [showPaymentModal, setShowPaymentModal] = useState(false)
-  const [paymentUrl, setPaymentUrl] = useState('')
-  
+
   const [formData, setFormData] = useState({
     studentName: '',
     studentClass: '',
@@ -34,16 +32,6 @@ const GetStarted = () => {
     { value: 'jee-mains', label: 'JEE Mains (Class 11-12) - ₹800/month', price: 800 },
     { value: 'jee-advanced', label: 'JEE Advanced (Class 11-12) - ₹1000/month', price: 1000 }
   ]
-
-  const getSelectedCoursePrice = () => {
-    const course = courses.find(c => c.value === formData.selectedCourse)
-    return course?.price || 0
-  }
-
-  const getSelectedCourseName = () => {
-    const course = courses.find(c => c.value === formData.selectedCourse)
-    return course?.label.split(' - ')[0] || ''
-  }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target
@@ -200,9 +188,8 @@ const GetStarted = () => {
         console.log('Payment Response:', paymentData)
 
         if (paymentData.success && paymentData.redirect_url) {
-          // Show payment modal with QR code option
-          setPaymentUrl(paymentData.redirect_url)
-          setShowPaymentModal(true)
+          // Directly redirect to PhonePe payment URL
+          window.location.href = paymentData.redirect_url
         } else {
           const errorMsg = paymentData.error || paymentData.detail || 'Payment initiation failed'
           throw new Error(errorMsg)
@@ -682,107 +669,6 @@ const GetStarted = () => {
           </Card>
         </motion.div>
       </div>
-
-      {/* ========== PAYMENT MODAL - DARK NAVY WITH GREEN ACCENTS ========== */}
-      <AnimatePresence>
-        {showPaymentModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-[#1a1f3a] rounded-2xl p-8 max-w-md w-full shadow-2xl relative border border-gray-700"
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setShowPaymentModal(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
-              >
-                <FaTimes className="w-5 h-5" />
-              </button>
-
-              {/* Header */}
-              <div className="text-center mb-6">
-                <h3 className="text-2xl font-bold text-white mb-2">Complete Payment</h3>
-                <p className="text-gray-400">Scan QR code or pay via PhonePe</p>
-              </div>
-
-              {/* Order Summary */}
-              <div className="p-4 bg-[#0f1628] rounded-xl border border-gray-700 mb-6">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-gray-400">Course:</span>
-                  <span className="text-white font-medium">{getSelectedCourseName()}</span>
-                </div>
-                <div className="flex justify-between items-center mb-3">
-                  <span className="text-gray-400">Student:</span>
-                  <span className="text-white">{formData.studentName}</span>
-                </div>
-                <hr className="border-gray-700 my-3" />
-                <div className="flex justify-between items-center">
-                  <span className="text-white font-semibold">Total Amount:</span>
-                  <span className="text-2xl font-bold text-blue-400">
-                    ₹{getSelectedCoursePrice()}
-                  </span>
-                </div>
-              </div>
-
-              {/* QR Code Section */}
-              <div className="text-center mb-6">
-                <div className="bg-white p-4 rounded-xl inline-block mb-4">
-                  {/* QR Code Image */}
-                  <img 
-                    src="/images/payment-qr.png" 
-                    alt="Payment QR Code"
-                    className="w-48 h-48 object-contain"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none'
-                      const fallback = document.getElementById('qr-fallback')
-                      if (fallback) fallback.style.display = 'flex'
-                    }}
-                  />
-                  {/* Fallback QR placeholder */}
-                  <div id="qr-fallback" className="w-48 h-48 bg-gradient-to-br from-gray-100 to-gray-200 hidden items-center justify-center">
-                    <div className="text-center">
-                      <FaQrcode className="w-16 h-16 mx-auto mb-2 text-blue-500" />
-                      <p className="text-sm text-gray-600">QR Code</p>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-gray-400 text-sm">Scan with any UPI app (GPay, PhonePe, Paytm)</p>
-              </div>
-
-              {/* Divider */}
-              <div className="flex items-center gap-4 mb-6">
-                <hr className="flex-1 border-gray-700" />
-                <span className="text-gray-500 text-sm font-medium">OR</span>
-                <hr className="flex-1 border-gray-700" />
-              </div>
-
-              {/* PhonePe Button */}
-              <button
-                onClick={() => window.location.href = paymentUrl}
-                className="w-full py-4 rounded-xl bg-[#5f259f] hover:bg-[#4a1d7a] text-white font-semibold flex items-center justify-center gap-3 transition-all transform hover:scale-[1.02] shadow-lg"
-              >
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                  <circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2"/>
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                </svg>
-                Pay with PhonePe
-              </button>
-
-              {/* Security Note */}
-              <p className="text-center text-gray-500 text-xs mt-4">
-                🔒 Secured by PhonePe Payment Gateway
-              </p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   )
 }
