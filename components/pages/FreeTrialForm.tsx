@@ -252,6 +252,8 @@ const FreeTrialForm = () => {
                   <option value="8" className="bg-gray-900">8</option>
                   <option value="9" className="bg-gray-900">9</option>
                   <option value="10" className="bg-gray-900">10</option>
+                   <option value="11" className="bg-gray-900">9</option>
+                  <option value="12" className="bg-gray-900">10</option>
                 </select>
               </div>
 
