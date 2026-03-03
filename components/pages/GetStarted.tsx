@@ -12,12 +12,8 @@ const GetStarted = () => {
   const [formData, setFormData] = useState({
     studentName: '',
     studentClass: '',
-    schoolName: '',
     mobileNumber: '',
-    email: '',
     selectedCourse: '',
-    howDidYouHear: '',
-    otherSource: '',
     studentConsent: false,
     studentSignature: '',
     parentalConsent: false,
@@ -30,7 +26,8 @@ const GetStarted = () => {
     { value: 'cbse-11-12', label: 'CBSE Class 11-12 - ₹300/month', price: 300 },
     { value: 'cbse-jee-foundation', label: 'CBSE+ JEE Foundation (Class 8-10) - ₹500/month', price: 500 },
     { value: 'jee-mains', label: 'JEE Mains (Class 11-12) - ₹800/month', price: 800 },
-    { value: 'jee-advanced', label: 'JEE Advanced (Class 11-12) - ₹1000/month', price: 1000 }
+    { value: 'jee-advanced', label: 'JEE Advanced (Class 11-12) - ₹1000/month', price: 1000 },
+    { value: 'holi-offer', label: 'Holi Offer CBSE Class 6-12 - ₹999 for 1 Year', price: 999 }
   ]
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -63,21 +60,12 @@ const GetStarted = () => {
     switch (step) {
       case 1:
         if (!formData.studentName || !formData.studentClass ||
-            !formData.schoolName || !formData.mobileNumber ||
-            !formData.email || !formData.howDidYouHear) {
+            !formData.mobileNumber) {
           alert('Please fill in all required fields')
-          return false
-        }
-        if (formData.howDidYouHear === 'others' && !formData.otherSource) {
-          alert('Please specify how you heard about us')
           return false
         }
         if (!/^[0-9]{10}$/.test(formData.mobileNumber)) {
           alert('Please enter a valid 10-digit mobile number')
-          return false
-        }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-          alert('Please enter a valid email address')
           return false
         }
         return true
@@ -112,13 +100,9 @@ const GetStarted = () => {
         // Step 1: Register the user
         const registrationPayload = {
           student_name: formData.studentName,
-          email: formData.email,
           mobile_number: formData.mobileNumber,
           class_level: formData.studentClass,
-          school_name: formData.schoolName,
           selected_course: formData.selectedCourse,
-          how_did_you_hear: formData.howDidYouHear,
-          other_source: formData.otherSource || null,
           student_consent: formData.studentConsent,
           parental_consent: formData.parentalConsent,
           terms_accepted: formData.termsAccepted,
@@ -329,92 +313,19 @@ const GetStarted = () => {
 
                     <div>
                       <label className="block text-sm font-semibold text-gray-300 mb-2">
-                        School Name *
+                        Mobile Number *
                       </label>
                       <input
-                        type="text"
-                        name="schoolName"
-                        value={formData.schoolName}
+                        type="tel"
+                        name="mobileNumber"
+                        value={formData.mobileNumber}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-[#0f1628] text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-500"
-                        placeholder="Enter school name"
+                        placeholder="10-digit mobile number"
+                        maxLength={10}
                         required
                       />
                     </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-semibold text-gray-300 mb-2">
-                          Mobile Number *
-                        </label>
-                        <input
-                          type="tel"
-                          name="mobileNumber"
-                          value={formData.mobileNumber}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-[#0f1628] text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-500"
-                          placeholder="10-digit mobile number"
-                          maxLength={10}
-                          required
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-semibold text-gray-300 mb-2">
-                          Email Address *
-                        </label>
-                        <input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-[#0f1628] text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-500"
-                          placeholder="email@example.com"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-semibold text-gray-300 mb-2">
-                        How did you hear about us? *
-                      </label>
-                      <select
-                        name="howDidYouHear"
-                        value={formData.howDidYouHear}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-[#0f1628] text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-500"
-                        required
-                      >
-                        <option value="">Select an option</option>
-                        <option value="google">Google</option>
-                        <option value="social-media">Social Media (Instagram, Facebook, LinkedIn, etc.)</option>
-                        <option value="friend-family">Friend or Family Recommendation</option>
-                        <option value="school-college">School / College Reference</option>
-                        <option value="others">Others</option>
-                      </select>
-                    </div>
-
-                    {formData.howDidYouHear === 'others' && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <label className="block text-sm font-semibold text-gray-300 mb-2">
-                          Please specify *
-                        </label>
-                        <input
-                          type="text"
-                          name="otherSource"
-                          value={formData.otherSource}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-[#0f1628] text-white placeholder-gray-500 transition-all duration-200 hover:border-gray-500"
-                          placeholder="Tell us how you heard about us"
-                          required
-                        />
-                      </motion.div>
-                    )}
                   </div>
                 </motion.div>
               )}

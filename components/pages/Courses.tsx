@@ -115,7 +115,7 @@ export default function Courses() {
               transition={{ delay: 0.3 }} 
               className="flex flex-wrap justify-center gap-4"
             >
-              <Link href="/signup" className="btn-primary text-lg px-8 py-4">
+              <Link href="/login" className="btn-primary text-lg px-8 py-4">
                 Enroll Now →
               </Link>
               <Link href="#courses" className="btn-secondary text-lg px-8 py-4">
@@ -178,7 +178,7 @@ export default function Courses() {
                   ))}
                 </ul>
                 <Link 
-                  href="/signup" 
+                  href="/login" 
                   className="btn-primary w-full text-center block"
                   style={{ background: `linear-gradient(135deg, ${plan.color}, ${plan.color}dd)` }}
                 >
@@ -274,7 +274,7 @@ export default function Courses() {
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-gray-600">1 Month </span>
                         <Link 
-                          href="/signup" 
+                          href="/login" 
                           className="text-sm font-semibold transition-colors"
                           style={{ color: category.color }}
                         >
@@ -369,7 +369,7 @@ export default function Courses() {
                 Join thousands of students already excelling with SmartLearners.ai
               </p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Link href="/signup" className="btn-primary text-lg px-8 py-4">
+                <Link href="/login" className="btn-primary text-lg px-8 py-4">
                   Get Started Free →
                 </Link>
                 <Link href="/contact" className="btn-secondary text-lg px-8 py-4">
